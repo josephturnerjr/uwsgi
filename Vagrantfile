@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "uwsgi-berkshelf"
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64"
+  config.vm.box = "precise32"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -61,6 +61,7 @@ Vagrant.configure("2") do |config|
   # Enabling the Berkshelf plugin. To enable this globally, add this configuration
   # option to your ~/.vagrant.d/Vagrantfile file
   config.berkshelf.enabled = true
+  config.omnibus.chef_version = :latest
 
   # An array of symbols representing groups of cookbook described in the Vagrantfile
   # to exclusively install and copy to Vagrant's shelf.
@@ -82,7 +83,7 @@ Vagrant.configure("2") do |config|
 
     chef.run_list = [
         "recipe[uwsgi::default]",
-        "recipe[uwsgi::test]"
+        "recipe[uwsgi::emperor]",
     ]
   end
 end

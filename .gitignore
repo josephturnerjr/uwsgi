@@ -19,3 +19,6 @@ _yardoc
 doc/
 
 metadata.json
+
+.vagrant
+Berksfile.lock
