@@ -6,4 +6,4 @@ stop on runlevel [06]
 
 respawn
 
-exec uwsgi --master --die-on-term --emperor <%= @config_dir %>
+exec uwsgi --uid web-data --gid web-data --master --die-on-term --emperor <%= @config_dir %>
